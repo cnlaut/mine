@@ -1,0 +1,84 @@
+###Windows或Mac下使用github服务
+
+>####要点：
+
+>1、学习Markdown写法
+
+>2、Windows和Mac中使用git
+
+>3、学习git命令
+
+>4、使用github
+
+---
+
+***注册github以及创建存储库***
+
+>没有什么难度，根据网站的提示进行即可
+
+***windows or mac下支持git操作***
+
+>1、安装TortoiseGit
+
+>2、然后新建一个文件夹
+
+>3、右键 Git Init Here
+
+>4、右键 Git Bash，这个是进入到git命令行，mac打开终端就有了，只不过mac要提前进入到对应的git存储库的路径中去
+
+>5、以上都是windows的操作方式，如果是mac下的话，只需要让支持git命令即可，后面我以windows操作为主线，其中的命令和mac都类似
+
+>6、然后通过命令来配置git，使其支持和github的push和pull，
+
+>>ssh -keygen -t rsa -C "cnlaut@gmail.com"
+
+>上面的邮箱是github的邮箱
+
+>命令执行完毕之后根据提示找出id_rsa.pub文件，复制其中的内容，然后到github中进入Account Settings，选择SSH Keys，然后添加把复制的内容放进去，这样，授权就有啦
+
+>>ssh -T git@github.com
+
+>这个命令是看是否验证成功
+
+>>git config --global user.name "cnlaut"
+
+>>git config --global user.email "cnlaut@gmail.com"
+
+>配置OK，下面添加远程上传的存储库地址
+
+>>git remote add origin git@github.com:cnlaut/mine.git
+
+>ok了，现在在本地新建的文件夹中新建一个文件比如github.txt
+
+>>git add github.txt
+
+>>git commit -m "first commit"
+
+>上面两步是添加文件和提交到存储库，但是啦，还没有提交到线上仓库中，继续
+
+>>git push origin master
+
+>现在就把文件推送到了github啦
+
+>然后怎样把自己的域名绑定到github啦
+
+>提交一个CNAME文件，内容为你的域名，比如atping.com，然后git到github，按照下面的命令
+
+>>git add CNAME
+
+>>git commit -m "domain"
+
+>>git push origin master
+
+>提交上去了，然后ping一下这个地址cnlaut.github.io，得到一个IP
+
+>DNS配置下就OK了，预计生效时间比较长，等待吧
+
+>赶紧到https://github.com/cnlaut/mine/这里来看看吧
+
+####总结下：
+>git不同于subversion，git还有许多地方需要学习的，需要熟悉命令，了解更深的功能，以便能替代掉使用多年的subversion
+
+>github也有很多配置，甚至可以直接做成一个静态的网站，绑定好域名就可以访问啦
+
+>至于markdown的书写写得比较惨目忍睹，还望见谅，多加练习必定有用的
